@@ -1,7 +1,7 @@
 # Program written By Declan Ross
 # This program takes a number as input and prints it in Base 27 Format
 
-# Conversion table, first is base 10 number, second is the base 27* base 28
+# Conversion table
 conversionTable = [
     "Chest",                  # 0
     "Right Pinky",            # 1
@@ -50,22 +50,27 @@ def convertToOpsakmin(baseTenInput):
     else:
         multiple = baseTenAsNumber // listLength
         remainder = baseTenAsNumber % listLength
-        if (multiple > listLength):
-            output = recursiveMethod(output, multiple, remainder, listLength)
-            return output
+        #print("Multiple: " + str(multiple) + " Remainder: " + str(remainder))
+        if (multiple > (listLength-1)):
+            recursiveOutput = recursiveMethod("", multiple, remainder, listLength)
+            #print("Recursive Output: " + recursiveOutput)
+            return recursiveOutput
         else:
             return (conversionTable[multiple] + ", " + conversionTable[remainder])
     
+# This method recursively calls itself until the multiple is smaller than the table size
 def recursiveMethod(output, multiple, remainder, listLength):
     print("Looped")
-    if (multiple == 0):
-        output = conversionTable[remainder] + ", " + output
-        return output
-    if (multiple > listLength):
-        multiple = multiple // listLength
-        remainder = multiple % listLength
-        output = conversionTable[remainder] + ", " + output
-        recursiveMethod(output, multiple, remainder, listLength)
+    if multiple < (listLength - 1):  # Base case
+        sendBack = conversionTable[multiple]+output + ", " + conversionTable[remainder] 
+        print("Sending: " + str(sendBack))
+        return sendBack
+    else:  # Recursive case
+        new_multiple = multiple // listLength
+        new_remainder = multiple % listLength
+        output = output + ", " + conversionTable[new_remainder]
+        #print("Recursed: " + str(output))
+        return recursiveMethod(output, new_multiple, remainder, listLength)  # Return the recursive result
         
 
 # This method converts the input into just the first letter
@@ -75,6 +80,7 @@ def shortenOpsakmin(opsakminInput):
     opsakminInput = opsakminInput.replace(",", ", ")
     return opsakminInput
 
+# While true, loop over
 while(True):
     print("Please enter a base 10 number to convert to Opsakmin:")
     userInput = input()
