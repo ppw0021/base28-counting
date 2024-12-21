@@ -33,6 +33,37 @@ conversionTable = [
     "Left Pinky"              # 27
 ]
 
+letterTable = [
+    " ",
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "n",
+    "o",
+    "p",
+    "q",
+    "r",
+    "s",
+    "t",
+    "u",
+    "v",
+    "w",
+    "x",
+    "y",
+    "z",
+]
+
+
 # This method checks if the input is a number or not
 def checkInput(baseTenInput):
     try:
@@ -60,10 +91,10 @@ def convertToOpsakmin(baseTenInput):
     
 # This method recursively calls itself until the multiple is smaller than the table size
 def recursiveMethod(output, multiple, remainder, listLength):
-    print("Looped")
+    #print("Looped")
     if multiple < (listLength - 1):  # Base case
         sendBack = conversionTable[multiple]+output + ", " + conversionTable[remainder] 
-        print("Sending: " + str(sendBack))
+        #print("Sending: " + str(sendBack))
         return sendBack
     else:  # Recursive case
         new_multiple = multiple // listLength
@@ -82,18 +113,32 @@ def shortenOpsakmin(opsakminInput):
 
 # While true, loop over
 while(True):
-    print("Please enter a base 10 number to convert to Opsakmin:")
+    print("Please enter message to encrypt")
     userInput = input()
 
-    if (checkInput(userInput)):
-        print("____________________\n")
-        print("Base 10 Input:")
-        print(userInput + "\n")
-        print("Base 28 Opsakmin Output:")
-        opsakminOutput = convertToOpsakmin(userInput)
-        print(opsakminOutput + "\n")
-        print("Base 28 Opsakmin Output (Shortened):")
-        print(shortenOpsakmin(opsakminOutput))
-        print("____________________")
-    else:
-        print("Please enter a number")
+    output = ""
+
+    for char in userInput:
+        opsakminNumber = letterTable.index(char)
+        concat = convertToOpsakmin(opsakminNumber)
+        output += concat + ", "
+
+    print("Long output: ")
+    output = output[:-2]
+    print(output)
+
+    print("Short output: ")
+    shortenedOutput = shortenOpsakmin(output)
+    print(shortenedOutput)
+#    if (checkInput(userInput)):
+#        print("____________________\n")
+#        print("Base 10 Input:")
+#        print(userInput + "\n")
+#        print("Base 28 Opsakmin Output:")
+#        opsakminOutput = convertToOpsakmin(userInput)
+#        print(opsakminOutput + "\n")
+#        print("Base 28 Opsakmin Output (Shortened):")
+#        print(shortenOpsakmin(opsakminOutput))
+#        print("____________________")
+#    else:
+#        print("Please enter a number")
