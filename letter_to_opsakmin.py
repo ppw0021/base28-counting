@@ -16,9 +16,9 @@ conversionTable = [
     "Right Shoulder",         # 10
     "Right Side of Neck",     # 11
     "Right Ear Lobe",         # 12
-    "Right Eye",              # 13
+    "Right Eye Ball",         # 13
     "Nose",                   # 14
-    "Left Eye",               # 15
+    "Left Eye Ball",          # 15
     "Left Ear Lobe",          # 16
     "Left Side of Neck",      # 17
     "Left Shoulder",          # 18
