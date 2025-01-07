@@ -108,12 +108,12 @@ def recursiveMethod(output, multiple, remainder, listLength):
 def shortenOpsakmin(opsakminInput):
     opsakminInput = ''.join([char for char in opsakminInput if not char.islower()])
     opsakminInput = opsakminInput.replace(" ", "")
-    opsakminInput = opsakminInput.replace(",", ", ")
+    opsakminInput = opsakminInput.replace(",", " ")
     return opsakminInput
 
 # While true, loop over
 while(True):
-    print("Please enter message to encrypt")
+    print("Please enter message to encode in Opsakmin/BASE28:")
     userInput = input()
 
     output = ""

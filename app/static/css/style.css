@@ -1,0 +1,18 @@
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+label {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#user_input {
+    margin: 1rem 0;            /* Adjust margin to only be vertical (top and bottom) */
+    width: 100vw;              /* Makes the input span the full width of the viewport */
+    height: 20rem;             /* Keeps the height you specified */
+    padding: 0.5rem;           /* Optional: Add padding for text spacing */
+    box-sizing: border-box;    /* Ensures padding and border are included in width/height */
+    text-align: left;          /* Ensures text aligns to the left */
+    vertical-align: top;       /* Ensures text aligns at the top */
+}
+

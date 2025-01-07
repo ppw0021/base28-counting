@@ -61,13 +61,14 @@ letterTable = [
     "x",
     "y",
     "z",
+    "."
 ]
 
 
 # While true, loop over
 while(True):
-    print("Welcome to the Opsakmin decoder, please enter the first letter of each symbol, with each body part seperated by a space.")
-    print('For example: "Right Eye Right Thumb Right Ear Lobe Right Ear Lobe Left Eye Ball" will be entered as "re rt rel rel leb"')
+    print("Welcome to the Opsakmin/BASE28 decoder, please enter every capital letter of each symbol, with each symbol seperated by a space.")
+    print('For example: "Right Eye Right Arm" will be entered as "RE RA"')
     userInput = input()
 
     output = ""
@@ -82,7 +83,7 @@ while(True):
                 location = conversionTable.index(current)
                 output += letterTable[location]
             except ValueError:
-                output += "(SYMBOL ENTERED INCORRECTLY)"
+                output += "(MISSINPUT)"
             current = ""
         else:
             current += char
@@ -97,7 +98,7 @@ while(True):
     current = ""
 
     print("Decoded message: ")
-    print("____________________\n")
+    print("________________________________________\n")
     print(output)
 
-    print("\n____________________")
+    print("\n________________________________________")
